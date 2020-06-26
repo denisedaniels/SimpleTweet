@@ -12,6 +12,8 @@ public class Tweet {
 
     public String body;
     public String createdAt;
+    //Tweet ID
+    public long id;
     //User who created the tweet
     public User user;
 
@@ -20,6 +22,7 @@ public class Tweet {
         Tweet tweet =new Tweet();
         tweet.body= jsonObject.getString("text");
         tweet.createdAt= jsonObject.getString("created_at");
+        tweet.id= jsonObject.getLong("id");
         //Get user in a java format
         tweet.user= User.fromJson(jsonObject.getJSONObject("user"));
         return tweet;
