@@ -3,11 +3,13 @@ package com.codepath.apps.restclienttemplate.models;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.parceler.Parcel;
 
 import java.util.ArrayList;
 import java.util.List;
 
 //This is the tweet model
+@Parcel
 public class Tweet {
 
     public String body;
@@ -16,6 +18,10 @@ public class Tweet {
     public long id;
     //User who created the tweet
     public User user;
+
+    // empty constructor needed by the Parceler library
+    public Tweet() {
+    }
 
     //Build the tweet using fields in Json Object
     public static Tweet fromJson(JSONObject jsonObject) throws JSONException {
