@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -97,10 +98,13 @@ public class TimelineActivity extends AppCompatActivity {
         // Handle presses on the action bar items
         if(item.getItemId()==R.id.compose){
             //Compose icon has been pressed
-            Toast.makeText(this,"Compose Tweet", Toast.LENGTH_SHORT).show();
+
             //Navigate to the compose tweet
+            Intent intent= new Intent(this, ComposeActivity.class);
+            startActivity(intent);
+            return true;
         }
-        return true;
+        return super.onOptionsItemSelected(item);
     }
 
     private void loadMoreDate() {
